@@ -37,8 +37,18 @@ def create_moon_data(n_samples, noise, seed):
     return X_train, X_test, y_train, y_test
 
 def accuracy(y_pred, y_true):
+    """Calculates accuracy of model
+    
+    Parameters:
+        y_pred: Predicted y values
+        y_true: The true y values
+    
+    Returns
+        correct: The percentage accuracy of model
+    """
     correct = torch.eq(y_true, y_pred).sum().item()
-    return (correct / len(y_pred)) * 100
+    correct = (correct / len(y_pred)) * 100
+    return correct
 
 class ClassifyMoons(nn.Module):
     """Neural network that classifies moon data."""
